@@ -8,6 +8,7 @@ import { MatListModule } from '@angular/material/list';
 import  { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatButtonModule } from '@angular/material/button';
 
 
 import { PersonService } from './person.service';
@@ -15,12 +16,14 @@ import { PersonService } from './person.service';
 
 import { AppComponent } from './app.component';
 import { ListComponent } from './ContactList/list.component';
+import { ModalComponent } from './modal/modal.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListComponent
+    ListComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,8 @@ import { ListComponent } from './ContactList/list.component';
     MatListModule,
     MatIconModule,
     MatInputModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatButtonModule
   ],
   providers: [
     PersonService

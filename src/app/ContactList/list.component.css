@@ -7,3 +7,7 @@ mat-card {
   color: #797979!important;
   margin-top: 5px;
 }
+mat-icon {
+  cursor: pointer;
+  margin-left: 30px;
+}
