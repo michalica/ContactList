@@ -1,0 +1,9 @@
+mat-card {
+  max-width: 900px;
+  margin: 0px auto;
+}
+.tags {
+  font-size: 11px!important;
+  color: #797979!important;
+  margin-top: 5px;
+}

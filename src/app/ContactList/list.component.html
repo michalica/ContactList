@@ -1,0 +1,30 @@
+<mat-card>
+  <mat-list>
+    <mat-list-item *ngFor="let person of personList" >
+      <mat-icon mat-list-icon>face</mat-icon>
+      <h4 mat-line>{{person.name}} {{person.lastName}}</h4>
+      <p mat-line> {{person.number}} </p>
+      <p mat-line class="tags">Friends</p>
+      <mat-divider></mat-divider>
+    </mat-list-item>
+  </mat-list>
+</mat-card>
+<mat-card>
+  <h4> Add contact </h4>
+  <form (submit)="addContact()" class="example-form">
+    <mat-form-field class="example-full-width">
+      <input matInput  placeholder="Name" name="name" [(ngModel)]="personName">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Last Name" name="lastName" [(ngModel)]="personLastName">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Tel. Number" name="number" [(ngModel)]="personNumber">
+    </mat-form-field>
+  </form>
+  <section class="example-section">
+    <mat-checkbox class="example-margin" [(ngModel)]="isFriend">Friends</mat-checkbox>
+    <mat-checkbox class="example-margin" [(ngModel)]="isFamily">Family</mat-checkbox>
+    <mat-checkbox class="example-margin" [(ngModel)]="isWork">Work</mat-checkbox>
+  </section>
+</mat-card>
