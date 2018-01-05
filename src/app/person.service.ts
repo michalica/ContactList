@@ -36,6 +36,10 @@ export class PersonService {
     this.personList.splice(index, 1);
   }
   getPersonWithIndex(index) {
+    console.log(index);
     return this.personList[index];
+  }
+  editPersonWithIndex(index, person) {
+    this.personList[index] = person;
   }
 }

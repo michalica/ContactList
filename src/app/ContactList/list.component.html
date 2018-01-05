@@ -1,17 +1,25 @@
 <mat-card>
+  <h4>Filter Contacts</h4>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Search" name="search" [(ngModel)]="searchValue">
+  </mat-form-field>
+  <mat-checkbox class="example-margin" [(ngModel)]="isFriendFilter">Friends</mat-checkbox>
+  <mat-checkbox class="example-margin" [(ngModel)]="isFamilyFilter">Family</mat-checkbox>
+  <mat-checkbox class="example-margin" [(ngModel)]="isWorkFilter">Work</mat-checkbox>
+  <mat-divider></mat-divider>
   <mat-list>
-    <mat-list-item *ngFor="let person of personList; let i = index" >
-      <mat-icon mat-list-icon>face</mat-icon>
-      <h4 mat-line>{{person.name}} {{person.lastName}}</h4>
-      <p mat-line> {{person.number}} </p>
-      <p mat-line class="tags">
-        {{person.isFriend === true ? "Friend," : ""}}
-        {{person.isFamily=== true ? "Family," : ""}}
-        {{person.isWork === true ? "Work," : ""}}
-      </p>
-      <mat-icon (click)="showModal(i)" >launch</mat-icon>
-      <mat-icon (click)="removeContact(i)">clear</mat-icon>
-      <mat-divider></mat-divider>
+    <mat-list-item *ngFor="let person of filterList(); let i = index"  >
+        <mat-icon mat-list-icon>face</mat-icon>
+        <h4 mat-line>{{person.name}} {{person.lastName}}</h4>
+        <p mat-line> {{person.number}} </p>
+        <p mat-line class="tags">
+          {{person.isFriend === true ? "Friend," : ""}}
+          {{person.isFamily=== true ? "Family," : ""}}
+          {{person.isWork === true ? "Work," : ""}}
+        </p>
+        <mat-icon (click)="showModal(i)" >launch</mat-icon>
+        <mat-icon (click)="removeContact(i)">clear</mat-icon>
+        <mat-divider></mat-divider>
     </mat-list-item>
   </mat-list>
 </mat-card>
@@ -35,4 +43,4 @@
     <mat-checkbox class="example-margin" [(ngModel)]="isWork">Work</mat-checkbox>
   </section>
 </mat-card>
-<app-modal [indexModal]="modalId" *ngIf="showModalVal" ></app-modal>
+<app-modal [indexModal]="modalId" (closeModal)="setModalToClose($event)" *ngIf="showModalVal" ></app-modal>
