@@ -76,6 +76,10 @@ export class ListComponent implements OnInit {
           helpIndex++;
           return;
         }
+        if (person.number.includes(this.searchValue)) {
+          helpIndex++;
+          return;
+        }
         personListFiltered.splice(helpIndex, 1);
       });
       return personListFiltered;
